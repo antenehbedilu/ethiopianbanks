@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, status
 
 #create an instance of APIRouter
 router = APIRouter(
@@ -7,6 +7,6 @@ router = APIRouter(
 )
 
 #endpoint for health check
-@router.get('/api/health', tags=['HealthChecks'])
+@router.get('/health', status_code=status.HTTP_200_OK)
 def health():
     return {'status': 'OK'}
